@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entries</title>
+</head>
+<body>
+    <h1>Your Entries</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <strong>{{ entry.title }}</strong> - {{ entry.content }}
+                <a href="{{ url_for('edit', entry_id=entry.id) }}">Edit</a>
+                <a href="{{ url_for('delete', entry_id=entry.id) }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('create') }}">Create New Entry</a>
+    <br>
+    <a href="{{ url_for('apod') }}">Apod</a>
+    <br>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
